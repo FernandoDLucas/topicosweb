@@ -1,0 +1,61 @@
+<div class="card">
+  <div class="card-header">
+      {{tituloPagina}}
+  </div>
+  <div class="card-body">
+      <div class="row">
+          <div class="col-md-2">Filtrar por:</div>
+          <div class="col-md-4">
+              <input type="text" [(ngModel)] = 'filtroLista'/>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+            <h4>Filtrado por: {{filtroLista}}</h4>
+          </div>
+      </div>
+      <div class="table-responsive">
+          <table class="table" *ngIf='estudantes && estudantes.length'>
+              <thead>
+                  <tr>
+                      <th>
+                          <button class="btn btn-primary"
+                            (click) = 'alternarImagem()'>
+                            {{ exibirImagem ? 'Esconder' : 'Exibir' }} Imagem
+                          </button>
+                      </th>
+                      <th>Nome</th>
+                      <th>Sexo</th>
+                      <th>Planeta</th>
+                      <th>Altura Relativa</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor='let estudante of estudantesFiltrados'>
+                      <td>
+                        <img *ngIf='exibirImagem'
+                            [src] = 'estudante.url'
+                            [title] = 'estudante.nome'
+                            [style.width.px] = 'larguraImagem'
+                            [style.margin.px] = 'margemImagem'>
+                      </td>
+                      <td>
+                          <a [routerLink]="['/estudantes',estudante.id]">
+                            {{estudante.nome}}
+                        </a>
+                      </td>
+                      <td>{{estudante.sexo | sexoPipe}}</td>
+                      <td>{{estudante.planeta}}</td>
+                      <td>
+                            <jedi-altura [altura]= "estudante.altura" 
+                                    [alturaMaxima] = 'alturaMaxima'>
+                            </jedi-altura>
+                      </td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </div>
+</div>
+
+
