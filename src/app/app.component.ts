@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
     <ul class='nav nav-pills'>
       <li><a class='nav-link' [routerLink]="['/bemvindo']">Home</a></li>
       <li><a class='nav-link' [routerLink]="['/estudantes']">Lista de Estudantes</a></li>
+      <li><a class='nav-link' 
+              [routerLink]="['/estudante/0/editar']">Adicionar Estudante</a></li>
     </ul>
   </nav>
   <div class=‘container>
@@ -17,5 +19,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title(title: any) {
+    throw new Error("Method not implemented.");
+  }
   titulo: string = "Academia Jedi";
 }

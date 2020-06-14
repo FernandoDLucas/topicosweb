@@ -112,21 +112,21 @@ export class EditarEstudanteComponent implements OnInit, AfterViewInit, OnDestro
     });
   }
 
-  salvarProduto(): void {
+  salvarEstudante(): void {
     if (this.formEstudantes.valid) {
       if (this.formEstudantes.dirty) {
         const p = { ...this.estudante, ...this.formEstudantes.value };
         if (p.id === 0) {
-          this.servicoEstudantes.criarEstudantes(p)
+          this.servicoEstudantes.criarEstudante(p)
             .subscribe({
               next: () => {
-                alert("Produto criado. Clique para voltar à lista")
+                alert("Estudante criado. Clique para voltar à lista")
                 this.onSaveComplete()
               },
               error: err => this.errorMessage = err
             });
         } else {
-          this.servicoEstudantes.atualizarProduto(p)
+          this.servicoEstudantes.atualizarEstudante(p)
             .subscribe({
               next: () => this.onSaveComplete(),
               error: err => this.errorMessage = err
@@ -141,16 +141,16 @@ export class EditarEstudanteComponent implements OnInit, AfterViewInit, OnDestro
   }
 
 
-  deletarProduto(): void {
-    if (this.produto.id === 0) {
+  deletarEstudante(): void {
+    if (this.estudante.id === "0") {
       // Não remove, pois nunca foi salvo
       this.onSaveComplete();
     } else {
-      if (confirm(`Remover o produto: ${this.produto.nomeProduto}?`)) {
-        this.servicoProdutos.deletarProduto(this.produto.id)
+      if (confirm(`Remover o estudante: ${this.estudante.nome}?`)) {
+        this.servicoEstudantes.deletarEstudante(this.estudante.id)
           .subscribe({
             next: () => {
-              alert("Produto removido. Clique para voltar à lista");
+              alert("Estudante removido. Clique para voltar à lista");
               this.onSaveComplete()
             },            error: err => this.errorMessage = err
           });
@@ -159,7 +159,7 @@ export class EditarEstudanteComponent implements OnInit, AfterViewInit, OnDestro
   }
 
   onSaveComplete(): void {
-    this.formProduto.reset();
+    this.formEstudantes.reset();
     this.roteador.navigate(['/produtos']);
 }
 

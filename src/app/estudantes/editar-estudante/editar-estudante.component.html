@@ -1,1 +1,82 @@
-<p>editar-estudante works!</p>
+<div class="card">
+    <div class="card-header">
+        {{tituloPagina}}
+    </div>
+
+    <div class="card-body">
+        <form novalidate (ngSubmit)="salvarEstudante()" [formGroup]="formEstudantes">
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label" 
+                    for="idNome">Nome Estudante</label>
+                <div class="col-md-8">
+                    <input class="form-control" 
+                        id="idNome" type="text" 
+                        placeholder="Nome (obrigatório)"
+                        formControlName="nome" 
+                        [ngClass]="{'is-invalid': displayMessage.nome}" />
+                    <span class="invalid-feedback">
+                        {{displayMessage.nome}}
+                    </span>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label"
+                       for="idCodigoAluno">Código Aluno</label>
+                <div class="col-md-8">
+                  <input class="form-control"
+                         id="idCodigoAluno"
+                         type="text"
+                         placeholder="Código (obrigatório)"
+                         formControlName="codigoAluno"
+                         [ngClass]="{'is-invalid': displayMessage.codigoAluno}" />
+                  <span class="invalid-feedback">
+                    {{displayMessage.codigoAluno}}
+                  </span>
+                </div>
+            </div>
+            <div class="form-group row mb-2">
+                <label class="col-md-2 col-form-label"
+                       for="idCorCabelo">Cor Cabelo</label>
+                <div class="col-md-8">
+                  <textarea class="form-control"
+                            id="idCorCabelo"
+                            placeholder="Cor do Cabelo"
+                            rows=3
+                            formControlName="corCabelo"
+                            [ngClass]="{'is-invalid': displayMessage.corCabelo}"></textarea>
+                  <span class="invalid-feedback">
+                    {{ displayMessage.corCabelo}}
+                  </span>
+                </div>
+            </div>
+        <div class="form-group row mb-2">
+            <div class="offset-md-2 col-md-6">
+              <button class="btn btn-primary mr-4"
+                      style="width:100px;"
+                      type="submit"
+                      [title]="formEstudantes.valid ? 'Salvar seus dados' : 'Desabilitado até que os dados estejam válidos'"
+                      [disabled]="!formEstudantes.valid">
+                Salvar
+              </button>
+              <button class="btn btn-outline-secondary mr-4"
+                      style="width:100px;"
+                      type="button"
+                      title="Cancelar suas edições"
+                      [routerLink]="['/estudante']">
+                Cancelar
+              </button>
+              <button class="btn btn-outline-warning mr-4"
+                      style="width:100px"
+                      type="button"
+                      title="Deletar este Estudante"
+                      (click)="deletarEstudante()">
+                Deletar
+              </button>
+            </div>
+        </div>
+        </form>
+    </div>
+
+    <div class="alert alert-danger" *ngIf="errorMessage">{{errorMessage}}
+    </div>
+</div>

@@ -28,7 +28,7 @@ export class EstudantesService {
         )
     }
 
-    criarEstudante(estudante: IEstudante): Observable<IEstudanteo> {
+    criarEstudante(estudante: IEstudante): Observable<IEstudante> {
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         estudante.id = null;
         return this.http.post<IEstudante>(this.estudanteUrl + "/novo", estudante, { headers })
@@ -55,7 +55,6 @@ export class EstudantesService {
         return this.http.put<IEstudante>(url, estudante, { headers })
           .pipe(
             tap(() => console.log('atualizarestudante: ' + estudante.id)),
-            // Retorna o produto atualizado
             map(() => estudante),
             catchError(this.trataErro)
           );
