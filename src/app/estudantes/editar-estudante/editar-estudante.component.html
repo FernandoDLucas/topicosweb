@@ -35,20 +35,99 @@
                 </div>
             </div>
             <div class="form-group row mb-2">
-                <label class="col-md-2 col-form-label"
-                       for="idCorCabelo">Cor Cabelo</label>
-                <div class="col-md-8">
-                  <textarea class="form-control"
-                            id="idCorCabelo"
-                            placeholder="Cor do Cabelo"
-                            rows=3
-                            formControlName="corCabelo"
-                            [ngClass]="{'is-invalid': displayMessage.corCabelo}"></textarea>
-                  <span class="invalid-feedback">
-                    {{ displayMessage.corCabelo}}
-                  </span>
-                </div>
+              <label class="col-md-2 col-form-label"
+                     for="idCorCabelo">Cor Cabelo</label>
+              <div class="col-md-8">
+                <input class="form-control"
+                       id="idcorCabelo"
+                       type="text"
+                       placeholder="Cor Cabelo"
+                       formControlName="corCabelo"
+                       [ngClass]="{'is-invalid': displayMessage.codigoAluno}" />
+                <span class="invalid-feedback">
+                  {{displayMessage.corCabelo}}
+                </span>
+              </div>
+          </div>
+
+          <div class="form-group row mb-2">
+            <label class="col-md-2 col-form-label"
+                   for="idAnoNascimento">Ano de Nascimento</label>
+            <div class="col-md-8">
+              <input class="form-control"
+                     id="idAnoNascimento"
+                     type="text"
+                     placeholder="Ano de Nascimento (Obrigatório)"
+                     formControlName="Ano de Nascimento"
+                     [ngClass]="{'is-invalid': displayMessage.anoNascimento}" />
+              <span class="invalid-feedback">
+                {{displayMessage.anoNascimento}}
+              </span>
             </div>
+        </div>
+
+        <div class="form-group row mb-2">
+          <label class="col-md-2 col-form-label"
+                 for="idAltura">Altura</label>
+          <div class="col-md-8">
+            <input class="form-control"
+                   id="idAltura"
+                   type="text"
+                   placeholder="Altura"
+                   formControlName="Altura"
+                   [ngClass]="{'is-invalid': displayMessage.Altura}" />
+            <span class="invalid-feedback">
+              {{displayMessage.Altura}}
+            </span>
+          </div>
+      </div>
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"
+               for="idPeso">Peso</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="idPeso"
+                 type="text"
+                 placeholder="Peso"
+                 formControlName="Peso"
+                 [ngClass]="{'is-invalid': displayMessage.Peso}" />
+          <span class="invalid-feedback">
+            {{displayMessage.Peso}}
+          </span>
+        </div>
+    </div>
+    <div class="form-group row mb-2">
+      <label class="col-md-2 col-form-label"
+             for="idCorOlhos">Cor dos Olhos</label>
+      <div class="col-md-8">
+        <input class="form-control"
+               id="idCorOlhos"
+               type="text"
+               placeholder="Cor dos Olhos"
+               formControlName="corOlhos"
+               [ngClass]="{'is-invalid': displayMessage.corOlhos}" />
+        <span class="invalid-feedback">
+          {{displayMessage.corOlhos}}
+        </span>
+      </div>
+  </div>
+  <div class="form-group row mb-2">
+    <label class="col-md-2 col-form-label"
+           for="idPlaneta">Planeta</label>
+    <div class="col-md-8">
+      <input class="form-control"
+             id="idPlaneta"
+             type="text"
+             placeholder="Planeta"
+             formControlName="Planeta"
+             [ngClass]="{'is-invalid': displayMessage.Planeta}" />
+      <span class="invalid-feedback">
+        {{displayMessage.Planeta}}
+      </span>
+    </div>
+</div>
+            
         <div class="form-group row mb-2">
             <div class="offset-md-2 col-md-6">
               <button class="btn btn-primary mr-4"

@@ -28,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'estudantes', component: ListaEstudantesComponent },
       { path: 'estudantes/:id', component: EstudanteDetalheComponent },

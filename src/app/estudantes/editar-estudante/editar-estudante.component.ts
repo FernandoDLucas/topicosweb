@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, OnDestroy, ElementRef, ViewChildren } from '@angular/core';
-import { FormGroup, Validators, FormControlName, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormControlName, FormBuilder} from '@angular/forms';
 import { IEstudante } from '../estudantes';
 import { NumberValidators } from '../../compartilhado/number-validators';
 import { Subscription, fromEvent, Observable, merge } from 'rxjs';
