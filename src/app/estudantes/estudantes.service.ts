@@ -33,7 +33,7 @@ export class EstudantesService {
         estudante.id = null;
         return this.http.post<IEstudante>(this.estudanteUrl + "/novo", estudante, { headers })
           .pipe(
-            tap(data => console.log('criarProduto: ' + JSON.stringify(data))),
+            tap(data => console.log('criarEstudante: ' + JSON.stringify(data))),
             catchError(this.trataErro)
           );
       }

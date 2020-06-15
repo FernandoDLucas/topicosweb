@@ -35,8 +35,8 @@ export class EditarEstudanteComponent implements OnInit, AfterViewInit, OnDestro
     this.validationMessages = {
       nome: {
         required: 'O nome do aluno é obrigatório.',
-        minlength: 'O nome do produto precisa ter pelo menos três caracteres.',
-        maxlength: 'O nome do produto não pode exceder 50 caracteres.'
+        minlength: 'O nome do aluno precisa ter pelo menos cinco caracteres.',
+        maxlength: 'O nome do aluno não pode exceder 50 caracteres.'
       },
       anonascimento: {
         required: 'O ano de nascimento é obrigatório.',
@@ -50,7 +50,7 @@ export class EditarEstudanteComponent implements OnInit, AfterViewInit, OnDestro
   ngOnInit(): void {
     this.formEstudantes = this.fb.group({
       nome: ['', [Validators.required,
-                         Validators.minLength(3),
+                         Validators.minLength(5),
                          Validators.maxLength(50)]],
       anoNascimento: ['', Validators.required,],
       dataLancamento: '',
@@ -95,9 +95,9 @@ export class EditarEstudanteComponent implements OnInit, AfterViewInit, OnDestro
     this.estudante = estudante;
 
     if (this.estudante.id === "0") {
-      this.tituloPagina = 'Adicionar Produto';
+      this.tituloPagina = 'Adicionar Estudante';
     } else {
-      this.tituloPagina = `Editar Produto: ${this.estudante.nome}`;
+      this.tituloPagina = `Editar Estudante: ${this.estudante.nome}`;
     }
     this.formEstudantes.patchValue({
       nome: this.estudante.nome,
@@ -160,7 +160,7 @@ export class EditarEstudanteComponent implements OnInit, AfterViewInit, OnDestro
 
   onSaveComplete(): void {
     this.formEstudantes.reset();
-    this.roteador.navigate(['/produtos']);
+    this.roteador.navigate(['/estudantes']);
 }
 
 
